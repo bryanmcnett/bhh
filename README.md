@@ -20,6 +20,7 @@ Let’s work in two dimensions, since it’s simpler and extends trivially to hi
 
 How to Construct a BHH
 
+![triangles](/triangles.png)
 
 Above we have an array of 15 triangle structures [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14] where each structure contains the three values [minX, minY, -(maxX+maxY)]. In 2D any 3 or more axes will do*, but we chose these for convenience.
 
@@ -30,20 +31,26 @@ Next, we sort each of the two arrays [0,1,2,3,4,5,6] and [8,9,10,11,12,13,14] by
 Next, we can sort each of the four arrays [0,1,2] and [4,5,6] and [8,9,10] and [12,13,14] by -(maxX+maxY). Then we can consider their median triangles (#1 and #5 and #9 and #13) to be done. 
 
 If we try to sort the arrays on either side of the newly-done medians, we find that each contains only one item, and so there is no more sorting to do.
+
 How to Search with a BHH
+
 To search the above BHH, we need a triangle structure with the three values [maxX, maxY, -(minX+minY)]. This must be the dual of the triangles we sorted.
+
+![triangles](/triangle.png)
 
 First, compare the search maxX with the minX of triangle #7. If the search maxX is smaller than triangle #7’s minX, then triangles [7,8,9,10,11,12,13,14] can’t possibly intersect the search triangle, because all of their minX are guaranteed to be >= the minX of triangle #7. 
 
 Then compare the search maxY with the minY of triangle #3. If the search maxX is smaller than triangle #3’s minX, then triangles [3,4,5,6] can’t possibly intersect the search triangle, because all of their minY are guaranteed to be >= the minY of triangle #3. 
 
 Then compare the search -(minX+minY) with the -(maxX+maxY) of triangle #1. If the search -(minX+minY) is smaller than triangle #1’s -(maxX+maxY), then triangles [1,2] can’t possibly intersect the search triangle, because all of their -(maxX+maxY) are guaranteed to be >= the -(maxX+maxY) of triangle #1.
+
 Possible To Sort Arrays of Circles, Spheres, Et Cetera
+
 The array of objects to sort can contain any shape, as long as you can cheaply derive half-spaces from it.
 
 For example, if you had an array of circles, each with the structure [x, y, radius]:
 
-
+![circles](/circles.png)
 
 It is possible to cheaply derive bounding triangles from them on the fly:
 
