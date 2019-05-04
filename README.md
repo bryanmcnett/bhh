@@ -45,7 +45,7 @@ But if there were sorting left to do, we would cycle through the same three half
 How to Search with a BHH
 ------------------------
 
-To search the above BHH, we need a triangle structure with the three values [maxX, maxY, -(minX+minY)]. This must be the [dual](https://en.wikipedia.org/wiki/Dual_polyhedron)** of the triangles we sorted.
+To search the above BHH, we need a triangle structure with the three values {maxX, maxY, -(minX+minY)}. This must be the [dual](https://en.wikipedia.org/wiki/Dual_polyhedron)* of the triangles we sorted.
 
 ![triangles](/triangle.png)
 
