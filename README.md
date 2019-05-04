@@ -30,7 +30,7 @@ How to Construct a BHH
 
 ![triangles](/triangles.png)
 
-Above we have an array of 15 triangle structures [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14] where each structure contains the three values [minX, minY, -(maxX+maxY)]. In 2D any 3 or more axes will do*, but we chose these for convenience.
+Above we have an array of 15 triangle structures [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14] where each structure contains the three values {minX, minY, -(maxX+maxY)}. In 2D any 3 or more axes will do*, but we chose these for convenience.
 
 It is possible to sort the entire array by increasing value of minX. Then, we can consider the median triangle (#7) to be done. 
 
@@ -47,11 +47,11 @@ To search the above BHH, we need a triangle structure with the three values [max
 
 ![triangles](/triangle.png)
 
-First, compare the search maxX with the minX of triangle #7. If the search maxX is smaller than triangle #7’s minX, then triangles [7,8,9,10,11,12,13,14] can’t possibly intersect the search triangle, because all of their minX are guaranteed to be >= the minX of triangle #7. 
+First, compare the search maxX with the minX of median triangle #7. If the search maxX is smaller than triangle #7’s minX, then triangles [7,8,9,10,11,12,13,14] can’t possibly intersect the search triangle, because all of their minX are guaranteed to be >= the minX of triangle #7. 
 
-Then compare the search maxY with the minY of triangle #3. If the search maxX is smaller than triangle #3’s minX, then triangles [3,4,5,6] can’t possibly intersect the search triangle, because all of their minY are guaranteed to be >= the minY of triangle #3. 
+Then compare the search maxY with the minY of median triangle #3. If the search maxX is smaller than triangle #3’s minX, then triangles [3,4,5,6] can’t possibly intersect the search triangle, because all of their minY are guaranteed to be >= the minY of triangle #3. 
 
-Then compare the search -(minX+minY) with the -(maxX+maxY) of triangle #1. If the search -(minX+minY) is smaller than triangle #1’s -(maxX+maxY), then triangles [1,2] can’t possibly intersect the search triangle, because all of their -(maxX+maxY) are guaranteed to be >= the -(maxX+maxY) of triangle #1.
+Then compare the search -(minX+minY) with the -(maxX+maxY) of median triangle #1. If the search -(minX+minY) is smaller than triangle #1’s -(maxX+maxY), then triangles [1,2] can’t possibly intersect the search triangle, because all of their -(maxX+maxY) are guaranteed to be >= the -(maxX+maxY) of triangle #1.
 
 Possible To Sort Arrays of Circles, Spheres, Et Cetera
 ------------------------------------------------------
