@@ -40,7 +40,7 @@ Next, we can sort each of the four subarrays [0,1,2] and [4,5,6] and [8,9,10] an
 
 If we try to sort the arrays on either side of the newly-done medians, we find that each contains only one item, and so there is no more sorting to do.
 
-But if there were sorting left to do, we would cycle through the same three half-planes, over and over again.
+But if there were sorting left to do, we would cycle through the same three half-spaces, over and over again.
 
 How to Search with a BHH
 ------------------------
