@@ -81,7 +81,7 @@ And perform the same sort & search algorithm as above, despite the fact that the
 A K-D Tree of Points is a BHH
 -----------------------------
 
-A K-D Tree of 2D points can be expressed as a sorted array of points, and is equivalent to a BHH with the four half-spaces [minX, minY, maxX, maxY] but also where minX==maxX and minY==maxY. This is what makes it possible for it to reject both sides of a median object, which is not generally possible with a BHH.
+A K-D Tree of points is well known to be expressible as a sorted array of points with no auxiliary data structure. A K-D Tree of points in 2D is equivalent to a BHH with the four half-spaces [minX, minY, maxX, maxY] and also where minX==maxX and minY==maxY. This is what makes it possible for a K-D Tree to reject both sides of a median object, which is not generally possible with a BHH.
 
 ---
 
