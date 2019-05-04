@@ -78,5 +78,5 @@ And perform the same sort & search algorithm as above, despite the fact that the
 
 
 
-*As long as all semicircles contain at least one axis
-**Not exactly a dual polyhedron. What is it called when one convex polytope's planes are all the opposite from anothers'?
+* As long as all semicircles contain at least one axis
+** Not exactly a dual polyhedron. What is it called when one convex polytope's planes are all the opposite from anothers'?
