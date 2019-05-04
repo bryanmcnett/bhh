@@ -43,7 +43,7 @@ If we try to sort the arrays on either side of the newly-done medians, we find t
 How to Search with a BHH
 ------------------------
 
-To search the above BHH, we need a triangle structure with the three values [maxX, maxY, -(minX+minY)]. This must be the dual of the triangles we sorted.
+To search the above BHH, we need a triangle structure with the three values [maxX, maxY, -(minX+minY)]. This must be the [dual](https://en.wikipedia.org/wiki/Dual_polyhedron)** of the triangles we sorted.
 
 ![triangles](/triangle.png)
 
@@ -79,4 +79,4 @@ And perform the same sort & search algorithm as above, despite the fact that the
 
 
 *As long as all semicircles contain at least one axis
-
+**Not exactly a dual polyhedron. What is it called when one convex polytope's planes are all the opposite from anothers'?
