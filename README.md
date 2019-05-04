@@ -1,3 +1,8 @@
+```
+unsorted AABB array reported 4540 intersections in 1.228813 seconds 
+sorted AABB array reported 4540 intersections in 0.017620 seconds
+```
+
 Bounding Half-Space Hierarchy
 =============================
 
