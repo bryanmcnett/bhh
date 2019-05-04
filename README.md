@@ -34,9 +34,9 @@ Above we have an array of 15 triangle structures [0,1,2,3,4,5,6,7,8,9,10,11,12,1
 
 It is possible to sort the entire array by increasing value of minX. Then, we can consider the median triangle (#7) to be done. 
 
-Next, we sort each of the two arrays [0,1,2,3,4,5,6] and [8,9,10,11,12,13,14] by minY. Then, we can consider their median triangles (#3 and #11) to be done. 
+Next, we sort each of the two subarrays [0,1,2,3,4,5,6] and [8,9,10,11,12,13,14] by minY. Then, we can consider their median triangles (#3 and #11) to be done. 
 
-Next, we can sort each of the four arrays [0,1,2] and [4,5,6] and [8,9,10] and [12,13,14] by -(maxX+maxY). Then we can consider their median triangles (#1 and #5 and #9 and #13) to be done. 
+Next, we can sort each of the four subarrays [0,1,2] and [4,5,6] and [8,9,10] and [12,13,14] by -(maxX+maxY). Then we can consider their median triangles (#1 and #5 and #9 and #13) to be done. 
 
 If we try to sort the arrays on either side of the newly-done medians, we find that each contains only one item, and so there is no more sorting to do.
 
