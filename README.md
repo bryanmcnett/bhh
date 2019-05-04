@@ -64,7 +64,8 @@ For example, if you had an array of circles, each with the structure [x, y, radi
 
 It is possible to cheaply derive bounding triangles from them on the fly:
 
-```minX = x-radius
+```
+minX = x-radius
 maxX = x+radius
 minY = y-radius
 maxY = y+radius
