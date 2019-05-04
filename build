@@ -1,0 +1,1 @@
+g++ bhh.cpp -O0 -mavx -march=native
