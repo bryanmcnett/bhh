@@ -1,4 +1,5 @@
-#Bounding Half-Space Hierarchy
+Bounding Half-Space Hierarchy
+=============================
 
 The Bounding Volume Hierarchy (BVH) is a popular spatial data structure. It is a tree of volumes, each node of which fully encloses the volumes of its child nodes. If you would like to know which objects in a BVH might intersect some volume of interest, you can do an intersection test against a BVH node, and if that test fails, there is no need to perform tests against the children of that node, since their intersection tests are guaranteed to fail.
 
@@ -12,17 +13,20 @@ There is, however, a spatial data structure that can sort an array of objects fo
 
 In other words, with BHH it is possible to “sort” a 1D array of 3D objects, “in 3D,” for efficient search “in 3D.”
 
-##A K-D Tree of Points is a BHH
+A K-D Tree of Points is a BHH
+-----------------------------
 
 A K-D Tree of points is equivalent to a BHH for objects with zero dimensions (i.e. points.) It is well known that an array of points can be sorted as a K-D Tree, and can be searched in sublinear time, without requiring any data structure other than the array itself. It is not well-known that an array of 3D objects can likewise be sorted as a BHH.
 
-##Half-Space
+Half-Space
+----------
 
 A closed half-space is a plane plus all of the space on one side of the plane. A bounding box is made of six half-spaces, and a bounding tetrahedron is made of four. For any set of half-spaces that enclose space, and for any array of objects, if there is a function f that produces the minimum value occupied by the object in each half-space, then we can use BHH to sort the array of objects for sublinear search:
 
 Let’s work in two dimensions, since it’s simpler and extends trivially to higher dimensions. 
 
-##How to Construct a BHH
+How to Construct a BHH
+----------------------
 
 ![triangles](/triangles.png)
 
@@ -36,7 +40,8 @@ Next, we can sort each of the four arrays [0,1,2] and [4,5,6] and [8,9,10] and [
 
 If we try to sort the arrays on either side of the newly-done medians, we find that each contains only one item, and so there is no more sorting to do.
 
-##How to Search with a BHH
+How to Search with a BHH
+------------------------
 
 To search the above BHH, we need a triangle structure with the three values [maxX, maxY, -(minX+minY)]. This must be the dual of the triangles we sorted.
 
@@ -48,7 +53,8 @@ Then compare the search maxY with the minY of triangle #3. If the search maxX is
 
 Then compare the search -(minX+minY) with the -(maxX+maxY) of triangle #1. If the search -(minX+minY) is smaller than triangle #1’s -(maxX+maxY), then triangles [1,2] can’t possibly intersect the search triangle, because all of their -(maxX+maxY) are guaranteed to be >= the -(maxX+maxY) of triangle #1.
 
-##Possible To Sort Arrays of Circles, Spheres, Et Cetera
+Possible To Sort Arrays of Circles, Spheres, Et Cetera
+------------------------------------------------------
 
 The array of objects to sort can contain any shape, as long as you can cheaply derive half-spaces from it.
 
