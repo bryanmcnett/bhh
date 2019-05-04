@@ -111,10 +111,10 @@ struct Object
   }
 };
 
-struct bhh_comparer
+struct bhh_compare
 {
   int m_direction;
-  bhh_comparer(int direction) : m_direction(direction) {}
+  bhh_compare(int direction) : m_direction(direction) {}
   bool operator ()(const AABB& a, const AABB& b) const
   {
     switch(m_direction)
@@ -128,12 +128,30 @@ struct bhh_comparer
   }
 };
 
+struct bhh_reject
+{
+  int m_direction;
+  bhh_reject(int direction) : m_direction(direction) {}
+  bool operator()(const AABB& aabb, const AABB& query) const
+  {
+    switch(m_direction)
+    {
+    case 0: return query.m_max.x < aabb.m_min.x; break;
+    case 1: return query.m_max.y < aabb.m_min.y; break;
+    case 2: return query.m_max.z < aabb.m_min.z; break;
+    case 3: return -(query.m_min.x + query.m_min.y + query.m_min.z)
+                 < -(aabb.m_max.x  + aabb.m_max.y  + aabb.m_max.z );      
+    }
+    return false;
+  }
+};
+
 void bhh_sort(AABB* begin, AABB* end, int direction = 0)
 {
   if(end - begin < 2)
     return;
   AABB* median = begin + (end - begin) / 2;
-  std::nth_element(begin, median, end, bhh_comparer(direction));
+  std::nth_element(begin, median, end, bhh_compare(direction));
   bhh_sort(begin, median, (direction + 1) & 3);
   bhh_sort(median+1, end, (direction + 1) & 3);
 }
@@ -147,16 +165,7 @@ int bhh_search(const AABB* begin, const AABB* end, const AABB query, int directi
   }
   const AABB* median = begin + (end - begin) / 2;
   const int intersections = bhh_search(begin, median, query, (direction + 1) & 3);
-  bool culled = false;
-  switch(direction)
-  {
-  case 0: culled = query.m_max.x < median->m_min.x; break;
-  case 1: culled = query.m_max.y < median->m_min.y; break;
-  case 2: culled = query.m_max.z < median->m_min.z; break;
-  case 3: culled = -(query.m_min.x + query.m_min.y + query.m_min.z)
-                 < -(median->m_max.x + median->m_max.y + median->m_max.z); break;
-  }
-  if(culled)
+  if(bhh_reject(direction)(*median, query))
     return intersections;
   return intersections + intersects(*median, query) + bhh_search(median+1, end, query, (direction + 1) & 3);
 }
