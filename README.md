@@ -21,7 +21,7 @@ A K-D Tree of points is equivalent to a BHH for objects with zero dimensions (i.
 Half-Space
 ----------
 
-A closed half-space is a plane plus all of the space on one side of the plane. A bounding box is made of six half-spaces, and a bounding tetrahedron is made of four. For any set of half-spaces that enclose space, and for any array of objects, if there is a function f that produces the minimum value occupied by the object in each half-space, then we can use BHH to sort the array of objects for sublinear search:
+A closed half-space is a plane plus all of the space on one side of the plane. A bounding box is the intersection of six half-spaces, and a bounding tetrahedron is the intersection of four. For any set of half-spaces whose intersection encloses space, and for any array of objects, if there is a function f that produces the minimum value occupied by the object in each half-space, then we can use BHH to sort the array of objects for sublinear search:
 
 Let’s work in two dimensions, since it’s simpler and extends trivially to higher dimensions. 
 
