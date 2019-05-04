@@ -18,11 +18,6 @@ There is, however, a spatial data structure that can sort an array of objects fo
 
 In other words, with BHH it is possible to “sort” a 1D array of 3D objects, “in 3D,” for efficient search “in 3D.”
 
-A K-D Tree of Points is a BHH
------------------------------
-
-A K-D Tree of points is equivalent to a BHH for objects with zero dimensions (i.e. points.) It is well known that an array of points can be sorted as a K-D Tree, and can be searched in sublinear time, without requiring any data structure other than the array itself. It is not well-known that an array of 3D objects can likewise be sorted as a BHH.
-
 Half-Space
 ----------
 
@@ -82,6 +77,11 @@ maxY = y+radius
 ```
 
 And perform the same sort & search algorithm as above, despite the fact that the array contains only circles, and the various minX minY values are never stored in memory.
+
+A K-D Tree of Points is a BHH
+-----------------------------
+
+A K-D Tree of 2D points can be expressed as a sorted array of points, and is equivalent to a BHH with the four half-spaces [minX, minY, maxX, maxY] but also where minX==maxX and minY==maxY. This is what makes it possible for it to reject both sides of a median object, which is not generally possible with a BHH.
 
 ---
 
