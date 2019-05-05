@@ -60,7 +60,7 @@ Possible To Sort Arrays of Circles, Spheres, Et Cetera
 
 The array of objects to sort can contain any shape, as long as you can cheaply derive half-spaces from it.
 
-For example, if you had an array of circles, each with the structure [x, y, radius]:
+For example, if you had an array of circles, each with the structure {x, y, radius}:
 
 ![circles](/images/circles.png)
 
