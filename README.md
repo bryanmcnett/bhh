@@ -92,7 +92,7 @@ By other metrics such as objects
 trivially rejected per unit time,
 it is probably not as good as 
 BVH et al, partially by virtue of the fact
-that no memory is available to implicit BHH.
+that an implicit BVH uses no memory.
 
 ---
 
