@@ -85,14 +85,14 @@ A K-D Tree of points is well known to be expressible as a sorted array of points
 
 Is BHH better than BVH?
 -----------------------
-In terms of memory usage, BHH is
+In terms of memory usage, implicit BHH is
 the best possible spatial sort,
 as it uses no memory whatsoever.
 By other metrics such as objects
 trivially rejected per unit time,
 it is probably not as good as 
 BVH et al, partially by virtue of the fact
-that no memory is available to BHH.
+that no memory is available to implicit BHH.
 
 ---
 
