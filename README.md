@@ -28,7 +28,7 @@ Let’s work in two dimensions, since it’s simpler and extends trivially to hi
 How to Construct a BHH
 ----------------------
 
-![triangles](/triangles.png)
+![triangles](/images/triangles.png)
 
 Above we have an array of 15 triangle structures [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14] where each structure contains the three values {minX, minY, -(maxX+maxY)}. In 2D any 3 or more axes will do*, but we chose these for convenience.
 
@@ -47,7 +47,7 @@ How to Search with a BHH
 
 To search the above BHH, we need a triangle structure with the three values {maxX, maxY, -(minX+minY)}. This must be the [dual](https://en.wikipedia.org/wiki/Dual_polyhedron)* of the triangles we sorted.
 
-![triangles](/triangle.png)
+![triangles](/images/triangle.png)
 
 First, compare the search maxX with the minX of median triangle #7. If the search maxX is smaller than triangle #7’s minX, then triangles [7,8,9,10,11,12,13,14] can’t possibly intersect the search triangle, because all of their minX are guaranteed to be >= the minX of triangle #7. 
 
@@ -62,7 +62,7 @@ The array of objects to sort can contain any shape, as long as you can cheaply d
 
 For example, if you had an array of circles, each with the structure [x, y, radius]:
 
-![circles](/circles.png)
+![circles](/images/circles.png)
 
 It is possible to cheaply derive bounding triangles from them on the fly:
 
