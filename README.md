@@ -83,6 +83,17 @@ A K-D Tree of Points is a BHH
 
 A K-D Tree of points is well known to be expressible as a sorted array of points with no auxiliary data structure. A K-D Tree of points in 2D is equivalent to a BHH with the four half-spaces [minX, minY, maxX, maxY] and also where minX==maxX and minY==maxY. This is what makes it possible for a K-D Tree to reject both sides of a median object, which is not generally possible with a BHH.
 
+Is BHH better than BVH?
+-----------------------
+In terms of memory usage, BHH is
+the best possible spatial sort,
+as it uses no memory whatsoever.
+By other metrics such as objects
+trivially rejected per unit time,
+it is probably not as good as 
+BVH et al, partially by virtue of the fact
+that no memory is available to BHH.
+
 ---
 
 * As long as all semicircles contain at least one axis
