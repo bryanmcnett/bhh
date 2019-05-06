@@ -88,10 +88,9 @@ Is BHH better than BVH?
 In terms of memory usage, implicit BHH is
 the best possible spatial data structure,
 as it uses no memory whatsoever.
-By other metrics such as objects
-trivially rejected per unit time,
-it is probably not as good as 
-BVH et al, partially by virtue of the fact
+By other metrics such as energy spent
+vs work avoided, it is probably not as good 
+as BVH et al, partially by virtue of the fact
 that an implicit BHH uses no memory.
 
 ---
